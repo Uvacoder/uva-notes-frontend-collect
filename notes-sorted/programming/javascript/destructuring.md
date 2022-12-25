@@ -1,45 +1,86 @@
-## Destructuring
+# Destructuring
 
-We can unpack the variables out of an object or array using destructuring.
+## What is Destructuring in JavaScript?
 
-```
-const person = {
-    name: Karen,
-    age: 42
-}
-```
-can be destructured to:
-```
-const { name, age } = person
+__Destructuring__ is act of unpacking element in an array of object. <br>
+It not only allow you to npack but also manipulate and switch elements according to your demand.
 
-```
-```
-let a, b, rest;
-[a, b] = [10, 20];
+## Destructuring in Arrays
 
-console.log(a);
-// expected output: 10
+` Rest Operator = ...rest `<br>
+E.g.
 
-console.log(b);
-// expected output: 20
+```JavaScript
+const [var1, var2, ...var3] = ['Deepa', 'Jyoti', 'Crescent', 'Partha'];
 
-[a, b, ...rest] = [10, 20, 30, 40, 50];
+console.log(var1); // Deepa
+console.log(var2); // Jyoti
+console.log(var3); // ['Crescent', 'Partha']
+```
 
-console.log(rest);
-// expected output: Array [30,40,50]
-```
-Destructuring can easily be spotted because unlike in an object or array literal expression the values are on the left of the assignment:
+JavaScript allows you to use `rest operator` with a `destructuring array` to assign the rest of regular array to variable. <br>
+As you have noticed __['Crescent', 'Partha']__ remaining both get stored in var3. <br>
+E.g.
 
+```JavaScript
+const [ , , website ] = [ 'google', 'yahoo', 'firefox' ];
+console.log(website); // firefox
 ```
-const [firstElement, secondElement] = list;
-// is equivalent to:
-// const firstElement = list[0];
-// const secondElement = list[1];
 
+Here we use ``','`` to skip variables at destructuring array's first and second index positions.
+
+## How Default value work in an Array Destructing Assignment
+E.g.
+
+```JavaScript
+const [ firstName = 'Deepa', lastName = 'Chaurasia' ] = [ 'Deepa Chaurasia' ];
+
+console.log(firstName); // Deepa Chaurasia
+console.log(lastName); // Chaurasia
 ```
-This can be used for swapping variables in an array - maybe you need to sort it -
+
+Here **Deepa** and **Chaurasia** are default value of **firstName** and **lastName** variables. <br>
+> In our attempt to extract first index value from right side of array, the computes defaulted to **Chaurasia** - because only 0th index value exists in **['Deepa Chaurasia']**
+
+## Object Destructuring in JavaScript
+
+**Object Destructing** is unique technique that allows you to neatly extract an object's value to new variables.
+
+```JavaScript
+const profile = {
+    firstName: 'Deepa'
+};
+const { firstName: firstName } = profile;
 ```
-const arr = [1,2,3];
-[arr[2], arr[1]] = [arr[1], arr[2]];
-console.log(arr); // [1,3,2]
+Here, <br>
+* `firstName` = This key references the profile object's firstName key
+* **firstName** = This value represents yours new variable
+
+> Destructuring object's key references its profile objects property name.
+
+> Destructuring object's value represents your new variable.
+
+E.g.
+```JavaScript
+const profile = {
+    firstName: 'Deepa', 
+    lastName: 'Chaurasia'
+};
+const { firstName, lastName } = profile;
+
+console.log(firstName); // Deepa
+console.log(lastName); // Chaurasia
 ```
+
+## How to Use object Destructuring to Swap Value
+
+```JavaScript
+let firstName = 'Crescent';
+let lastName = 'Partha';
+
+[{ firstName, lastName } = { firstName: lastName, lastName: firstName }];
+
+console.log(firstName); // Partha
+console.log(lastName); // Crescent
+```
+
