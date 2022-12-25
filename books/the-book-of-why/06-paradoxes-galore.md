@@ -1,0 +1,2 @@
+# Paradoxes Galore!
+This chapter deals mostly with different paradoxes as illustrations of [[confounding bias]] and how unintuitive certain problems can be. It is Pearl's assertion that causal diagrams can help solve most of these paradoxes by constructing the correct diagram.
