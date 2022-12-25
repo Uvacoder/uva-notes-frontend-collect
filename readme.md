@@ -1,6 +1,6 @@
 ##  Title
 
-- https://github.com/Uvacoder/aaa-notes-collect
+- https://github.com/Uvacoder/aaa-notes-md-collect2
 
 - every programmer should know
 - js concepts 33
